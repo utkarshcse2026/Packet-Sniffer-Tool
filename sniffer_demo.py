@@ -2,6 +2,12 @@ import socket
 import struct
 import textwrap
 
+
+def main():
+    conn = socket.socket(socket.AF_PACKET, socket.SOCK_RAW , socket.ntohs(3))
+
+
+
 # unpack ethernet frame
 
 def ethernet_frame(data):
@@ -12,5 +18,5 @@ def ethernet_frame(data):
 def get_mac_addr(bytes_addr):
     bytes_str = map('{:02x}'.format, bytes_addr)
     mac_addr = ':'.join(bytes_str).upper()
-    
+
 
