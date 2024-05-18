@@ -10,7 +10,7 @@ def main():
         raw_data , addr = conn.recvfrom(65536)
         dest_mac , src_mac , eth_proto , data = ethernet_frame(raw_data)
         print('\nEthernet Frame:')
-        print('Destination: {} , Source: {}, Protocol: {}'.fromat(dest_mac, src_mac , eth_proto))
+        print(TAB_1 + 'Destination: {} , Source: {}, Protocol: {}'.format(dest_mac, src_mac , eth_proto))
 
 
 # unpack ethernet frame
@@ -23,5 +23,10 @@ def ethernet_frame(data):
 def get_mac_addr(bytes_addr):
     bytes_str = map('{:02x}'.format, bytes_addr)
     mac_addr = ':'.join(bytes_str).upper()
+ 
+ # unpacks ipv4 packet
+def ipv4_packet(data)
+
+ main()
 
 
