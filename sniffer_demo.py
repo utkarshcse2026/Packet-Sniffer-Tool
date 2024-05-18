@@ -25,7 +25,12 @@ def get_mac_addr(bytes_addr):
     mac_addr = ':'.join(bytes_str).upper()
  
  # unpacks ipv4 packet
-def ipv4_packet(data)
+def ipv4_packet(data):
+    version_header_length = data[0]
+    version = version_header_length >> 4
+    header_length = (version_header_length & 15) * 4
+    tt1, proto , src , target = struct.unpack('! 8x B B 2x 4s 4s', data[:20])
+    return version , header_length , tt1, proto ,ipv4(src) , ipv4(target) , data[header_length:]
 
  main()
 
